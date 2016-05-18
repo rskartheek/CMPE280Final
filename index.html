@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="index" ng-controller="indexCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Building UI framework, Html5 components, Javascript frameworks">
+    <meta name="author" content="Sairam Nutheti, Manidheep Vipperla">
+    <title>Home Page</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://s3-media2.fl.yelpcdn.com/assets/srv0/svg_icons/19ad156a8ab5/assets/sprite.css"/>
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"/>
+
+    <!-- Custom CSS -->
+    <link href="css/shop-item.css" rel="stylesheet"/>
+    <link href="css/home-page.css" rel="stylesheet"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">UI Designers</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#">Components</a>
+            </li>
+            <li>
+                <a href="#">VizBoards</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+
+    <!-- /.container -->
+
+    </div>
+</nav>
+<nav class="navbar-inverse">
+    <!-- Page Content -->
+
+    <div class="row menu-fixed">
+        <div class="col-lg-3 col-md-6 custom-padding">
+            <a href='#' >
+                <div data-toggle="modal" data-target="#exploreModal"  class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <i class="fa fa-eye fa-4x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <div class="huge">Explore</div>
+                                <div>Find patterns and relationships in your data.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!--Explore Modal hidden in DOM first-->
+            <!-- Modal -->
+            <div class="modal fade" id="exploreModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div>
+                                    <div ng-click="getColumnData(column)" class="columnDiv col-lg-2" ng-repeat="column in columns track by $index">
+                                            {{column}}
+                                    </div>
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+
+                            <label class="control-label">Select File</label>
+                            <input id="input-1a" type="file" class="file" data-show-preview="false">
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 custom-padding">
+            <a href='#' >
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <i class="fa fa-wrench fa-4x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <div class="huge">Refine</div>
+                                <div>Enrich and shape your data.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 custom-padding">
+            <a href='#' >
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <i class="fa fa-lightbulb-o fa-4x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <div class="huge">Discover</div>
+                                <div>Find patterns and relationships in your data.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6  custom-padding">
+            <a href='#' >
+                <div class="ribbon-wrapper-green"><div class="ribbon-green">&nbsp;&nbsp;&nbsp;Coming Soon</div></div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12 text-center" style="font-weight:normal">
+                                <i class="fa fa-share-alt fa-4x"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <div class="huge">Share</div>
+                                <div>Find patterns and relationships in your data.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row menu-search">
+        <div class="container">
+            <div class="col-md-6">
+
+                <div class="search-icons">
+                    <div class="form-group form-input">
+                        <i class="fa fa-search fa-2x"></i>
+                        <input type="text"  placeholder="Search" ng-model="searchName"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="search-icons add-icon"><i data-toggle="modal" data-target="#uploadModal" class="fa fa-plus-circle fa-2x"></i> <span> Add</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container-fluid">
+    <!-- Page Features -->
+    <div class="row text-center">
+        <div class="col-md-3 col-sm-6 hero-feature" ng-repeat="r in restaurants | filter:{ name: searchName }" bs-popover>
+            <div class="thumbnail">
+                <img ng-src = "{{r.src}}" alt="">
+                <div class="caption">
+                    <h3>
+                        {{r.name}}
+
+                        <a  tabindex="0"   data-trigger="focus"
+                            class="example-popover-2 settings-icon" >
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"> <circle fill="#0B9BDB" cx="7.5" cy="1.5" r="1.5"></circle> <circle fill="#0B9BDB" cx="7.5" cy="7.5" r="1.5"></circle> <circle fill="#0B9BDB" cx="7.5" cy="13.5" r="1.5"></circle> </svg></a>
+                    </h3>
+                    <a tabindex="0" class="btn btn-primary" rel="popover" data-content="This is the <b>body</b> of Popover" data-original-title="Creativity Tuts">pop</a>
+                    <p>{{r.location}}</p>
+
+                </div>
+            </div>
+        </div>
+        <!--Tooltip content hidden from DOM first-->
+        <div id="example-popover-2-content" class="hidden">
+            <div>
+                <div class="icon-popup">
+                    <i class="fa fa-eye fa-2x"></i>
+                </div>
+                <div class="icon-popup">
+                    <i class="fa fa-wrench fa-2x"></i>
+                </div>
+                <div class="icon-popup">
+                    <i class="fa fa-lightbulb-o fa-2x"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<!-- <div class="container">
+    <hr>
+    <!-- Footer -->
+<!--<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; UI Designers, CmpE 280 Fall'16</p>
+        </div>
+    </div>
+</footer>
+</div> -->
+<!-- /.container -->
+<!-- jQuery -->
+<script type="text/javascript">
+    var url='localhost:3000';
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.src.js"></script>
+<script type="text/javascript" src="js/highcharts-ng.min.js"></script>
+
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="js/home-page.js"></script>
+
+
+
+</body>
+</html>
